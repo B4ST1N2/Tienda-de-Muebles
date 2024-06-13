@@ -1,0 +1,507 @@
+html {
+    box-sizing: border-box; /*No modifica el tamaño del elemento si cambiamos un with y un padding*/
+    font-size: 62.5%; /* ! 1REM = 10px */
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2; /*Interlineado del txto*/
+}
+/* *Globales */
+a {
+    text-decoration: none; /*Eliminar la linea de los a*/
+    color: black;
+}
+
+h1 , h2, h3 {
+    font-family: 'Playfair Display', serif;
+    margin: 0 0 5rem 0;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+@media ( min-width: 768px ) {
+    h1{
+        font-size: 5rem;
+    }
+}
+
+h2{
+    font-size: 3rem;
+}
+
+@media ( min-width: 768px ) {
+    h2{
+        font-size: 4rem;
+    }
+}
+
+h3{
+    font-size: 3rem;
+}
+
+.contenedor{
+    max-width: 120rem; /*para que se corte llegado a la cantidad de px*/
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%; /*para que la imagen se vea completa siempre*/
+    display: block; /*Elimina espacio*/
+}
+
+.btn {
+    color: #fff;
+    background-color: #8cbc00;
+    display: block;
+    font-weight: 900;
+    text-transform: uppercases;
+    padding: 1rem;
+    transition: background-color .3s ease-out;
+    /*para que cambie el color lento, 1. se pone lo que queremos que pase de hover 
+    2. el tiempo de trancicion y el tersero nose*/
+    text-align: center;
+    border: none;
+    width: 100%;
+}
+
+@media ( min-width: 760px ) {
+    .btn {
+        width: unset;
+    }
+}
+
+.btn:hover {
+    background-color: #769c02;
+    cursor: pointer; /*cambia el cousor cuando estas en el boton*/
+}
+
+/* *Utilidades */
+.text-center{
+    text-align: center;
+}
+.max-width-30{
+    max-width: 100%;
+}
+
+@media ( min-width: 768px ) {
+    .max-width-30{
+        max-width: 30rem;
+    }
+}
+
+.max-width-80{
+    max-width: 80rem;
+}
+
+/* *Header y Navegacion */ 
+.nombre-sitio{
+    margin-top: 5rem;
+    text-align: center;
+}
+h1 span{
+    color: #037bc0;
+}
+
+.contenedor-navegacion{
+    /*1 .ancho de del border 2.tipo de border 3. color */
+    border-top: 1px solid #e1e1e1;
+}
+
+.nav-principal{
+    /*1. top y botton 2.left y rigth, o agregar los 4 valores*/
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ /*alinea el contenido y deja un spacion entre cada uno*/
+
+}
+
+@media ( min-width: 768px ) {
+    .nav-principal{
+        justify-content: space-between;
+        flex-direction: row;
+    }
+}
+
+.hero{
+    background-image: url(../img/principal.jpg); /*ingresar una imagen desde css*/
+    background-repeat: no-repeat; /*para que no se repita*/
+    background-size: cover; /*para que se estire y tome todo el espacio disponible*/
+    background-position: center center;
+    height: 25rem;
+}
+
+@media ( min-width: 768px ) {
+    .hero{
+        height: 55rem;
+    }
+}
+
+/* *Categorias*/
+.categorias{
+    padding-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.categorias img{
+    width: 100%;
+}
+
+@media ( min-width: 768px ) {
+    .categorias{
+        padding-top: 5rem;
+    }
+}
+.listado-categorias{
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    gap: 2rem; /*Separacion entre columnas*/
+
+}
+
+@media ( min-width: 768px ) {
+    .listado-categorias{
+        grid-template-columns: repeat(3,1fr);/* crea las columnas y las repite 3 veses  cada una 1 fraccion del espacion*/
+        grid-template-rows: 1fr;
+    }
+}
+.categoria a {
+    display: block;
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem;
+}
+.categoria a:hover{ /*cuando se ponga el cursor se activa*/
+    background-color: #037bc0;
+    color: white;
+    border-bottom-right-radius: 2rem; /*borde abajo izquierdo*/
+}
+
+/* *Sobre Nosotros */
+
+.sobre-nosotros{
+    background-image: linear-gradient( to bottom, transparent 50%, #037bc0 50%, #037bc0 100%), url("../img/nosotros.jpg"); 
+
+    /* sirve para hacer un degradado de colores, 1. de donde a donde(de derecha a izquierd) 2.de que color y hasta donde, 3. el otro color hasta donde , 
+    y se pone una imagen y se ve porque es transparente*/
+    background-position: center, top left;
+    padding-bottom: 7rem;
+    background-repeat: no-repeat;
+    /*100% para el linear-gradient y luego 120rem para el tamaño de la imagen*/
+    background-size: 100% , 70rem;
+
+}
+
+@media ( min-width: 760px ) {
+    .sobre-nosotros{
+        background-image: linear-gradient( to right, transparent 50%, #037bc0 50%, #037bc0 100%), url("../img/nosotros.jpg"); 
+
+        /* sirve para hacer un degradado de colores, 1. de donde a donde(de derecha a izquierd) 2.de que color y hasta donde, 3. el otro color hasta donde , 
+        y se pone una imagen y se ve porque es transparente*/
+        background-position: left center;
+        padding: 10rem 0;
+        /*100% para el linear-gradient y luego 120rem para el tamaño de la imagen*/
+        background-size: 100% , 90rem;
+    }
+}
+
+
+.sobre-nosotros-flexbox{
+    display: flex;
+    justify-content: center;  /*Creamos para que el contenido pueda llegar hasta el final */
+}
+
+
+.contenedor-derecho{
+    flex-basis: 80%;       /*ponemos el texto a la derecha */
+    padding-top: 45rem;
+    color: #fff;
+}
+
+@media ( min-width: 760px ) {
+    .sobre-nosotros-flexbox{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .contenedor-derecho{
+        flex-basis: 50%;       /*ponemos el texto a la derecha */
+        padding-left: 10rem;
+        padding-top: unset; /*!unset para decir que se elimine un propiedad en la mq*/
+        color: #fff;
+    }
+    
+    
+}
+/**Listado de productos*/
+
+.contenido-principal{
+    padding-top: 5rem;
+}
+
+
+
+.producto{
+    background-color: #037bc0;
+    margin-bottom: 2rem;
+}
+
+.producto:nth-child(6){
+    margin-bottom: 0rem;
+}
+
+
+@media ( min-width: 760px ) {
+    .listado-productos{
+        display: grid;
+        grid-template-columns: repeat(6,1fr);    
+        column-gap: 2rem;
+        row-gap: 2rem;
+    }
+    
+    .producto{
+        margin-bottom: unset;
+    }
+
+    .producto:nth-child(1){
+        grid-column: 1/7;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
+    .producto:nth-child(1) img{
+        height: 43rem;
+        width: 100%;
+        object-fit: cover; /*!para mantener bien la apariencia de la imagen y que cuando se haga responseve siga viendose bien*/
+    }
+    .producto:nth-child(2){
+        grid-column: 1/4;
+    }
+    .producto:nth-child(2) img,
+    .producto:nth-child(3) img{
+        height: 30rem;
+        width: 100%;
+        object-fit: cover; /*!para mantener bien la apariencia de la imagen y que cuando se haga responseve siga viendose bien*/
+    }
+    .producto:nth-child(3){
+        grid-column: 4/7;
+    }
+    
+    .producto:nth-child(4){
+        grid-column: 1/3;
+    }
+    .producto:nth-child(5){
+        grid-column: 3/5;
+    }
+    .producto:nth-child(6){
+        grid-column: 5/7;
+    }
+    
+}
+
+.producto img{
+    background-size: cover; /*para que se estire y tome todo el espacio disponible*/
+    background-position: center center;
+}
+
+.texto-producto{  
+    text-align: center;
+    color: #ffffff;
+    padding: 2rem;
+}
+.texto-producto h3{
+    margin: 0;
+}
+.texto-producto p{
+    margin: 0 0 .5rem 0;
+}
+
+.texto-producto .precio{
+    font-size: 2.8rem;
+    font-weight: 900;
+}
+
+/* *Footer */
+.ultimo{
+    /*1 .ancho de del border 2.tipo de border 3. color */
+    border-top: 1px solid #e1e1e1;
+    margin-top: 5rem;
+}
+
+.footer{
+    margin-top: 3rem ;
+    margin-bottom: 5rem;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-rows: repeat(3 ,1fr);
+    text-align: center;
+    gap: 4rem;
+
+}
+
+
+
+
+@media ( min-width: 760px ) {
+    .footer{
+        grid-template-columns: repeat(3 ,1fr);
+        grid-template-rows: unset;
+    }
+}
+
+.navegacion a{
+    display: block;
+    color: black;
+    font-weight: 400;
+
+}
+.derechos{
+    margin-top: 6rem;
+    text-align: center;
+}
+/**Sobre Nosotros*/
+.principal-sobre-Nosotros{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /*Para responsive que cuenado el contenido llego a 250px cambie y tome una franccion completa*/
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    column-gap: 4rem;
+}
+
+.principal-sobre-Nosotros img{
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.principal-sobre-Nosotros p{
+    line-height: 1.6; /*margen texto*/
+    padding: 0 5rem;
+}
+
+@media ( min-width: 768px ) {
+    .principal-sobre-Nosotros p{
+        padding: unset;
+    }
+}
+
+/** Blog */
+.contenido-principal-blog{
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.texto-parrafos{
+    padding: 0 3.5rem;
+}
+
+
+@media ( min-width: 768px ) {
+    .contenido-principal-blog{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+
+    .parrafos-blog{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* .texto-parrafos{
+        padding: unset;
+    } */
+
+}
+
+
+
+.parrafos-blog{
+    font-weight: bold;
+}
+.parrafos-blog span{
+    color: #037bc0;
+}
+.entrada{
+    border-bottom: 2px solid #e1e1e1;
+    padding-bottom: 4rem;
+    margin-bottom: 2rem;
+}
+.entrada:last-of-type{ /*!busca el ultimo elemento que tenga la clase*/
+    border: none;
+}
+
+/**Galeria*/
+
+.galeria{
+    list-style: none; /*Borra el punto o numer de la lista*/
+    padding: 0;
+    margin: 0;
+}
+
+.galeria img{
+    width: 100%;
+    margin-bottom: 2rem;
+    padding-top: 0;
+}
+
+@media ( min-width: 768px ) {
+    .galeria{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 2rem;
+    }
+
+    .galeria img{ /*para que todas las imagenes queden bien alineadas*/
+        height: 40rem;
+        width: 40rem;
+        object-fit: cover;
+        background-position: center center;
+    }
+}
+
+
+
+/**Formulario*/
+.formulario{
+   max-width: 60rem;
+   margin: 0 auto; /* el auto es para que quede centrado*/
+}
+
+.formulario fieldset{
+    border: 1px solid black;
+    margin-bottom: 3rem;
+ 
+
+}
+
+.formulario legend{
+    background-color: #037bc0;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    color: #ffffff;
+    padding: .5rem 0;
+    margin-bottom: 3rem;
+}
+
+.campo{
+    display: flex;
+    margin-bottom: 2rem;
+}
+.campo label{
+    flex-basis: 10rem; /*hace que el label use los 10rem y queda alineado*/
+}
+
+.campo input:not([type="radio"]),select{
+    flex: 1;   /*!para que ocupa todo el espacio disponible*/
+    border: 1px solid #e1e1e1;
+    padding: 1rem;
+}
+    
